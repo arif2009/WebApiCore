@@ -120,6 +120,7 @@ services.Configure<IdentityOptions>(opt => {
 
 Now execute command `Add-Migration` and `Update-Database` in package manager console
 ![Package manager console](https://i.imgur.com/ariBhmG.png)
+
 After execute successfully you can see your table structure like this
 ![identity table](https://i.imgur.com/gzloFF0.png)
 
