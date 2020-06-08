@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WEB.API.Migrations
 {
-    public partial class InitialMigrationWithIdentity : Migration
+    public partial class InitialMigratiion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -151,6 +151,21 @@ namespace WEB.API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "1", "88f0dec2-5364-4881-9817-1f2a135a8649", "SuperAdmin", "SUPERADMIN" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "2", "5719c2b8-22fd-4eee-9c21-4bfbd2ce18d7", "Admin", "ADMIN" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "3", "eccc7115-422c-487d-95b0-58cfa8e66a94", "User", "USER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

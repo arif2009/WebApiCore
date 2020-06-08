@@ -10,8 +10,8 @@ using WEB.API.Data;
 namespace WEB.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200607175656_InitialMigrationWithIdentity")]
-    partial class InitialMigrationWithIdentity
+    [Migration("20200608122554_InitialMigratiion")]
+    partial class InitialMigratiion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,29 @@ namespace WEB.API.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            ConcurrencyStamp = "88f0dec2-5364-4881-9817-1f2a135a8649",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            ConcurrencyStamp = "5719c2b8-22fd-4eee-9c21-4bfbd2ce18d7",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            ConcurrencyStamp = "eccc7115-422c-487d-95b0-58cfa8e66a94",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -34,7 +34,7 @@ namespace WEB.API.Controllers
             return Ok(value);
         }
 
-        // GET api/values/5
+        // GET api/values/admin
         [Authorize(Roles = "Admin")]
         [HttpGet("admin")]
         public IActionResult AdminValue()
