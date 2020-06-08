@@ -343,4 +343,4 @@ Now try to access `api/values/admin` that only can access, who has admin role
 Yes :ok_hand: we successfully access admin method using token
 ![](https://i.imgur.com/EYdTHQJ.png)
 
-No you can play with it. Remove line `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString())` from `register` method and register another user, try to access `api/values/admin`. You can't access because you dont have admin role.
+Now you can play with it. Remove line `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString())` from `register` method and register another user, try to access `api/values/admin`. You can't access because you dont have admin role.
