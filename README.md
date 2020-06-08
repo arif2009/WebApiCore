@@ -281,3 +281,56 @@ public class AuthController : ControllerBase
 ```
 
 #### Step-8
+
+It is time to test our authentication. To test we should add a Api controller with `[Authorize]`, here I added `ValuesController.cs`
+
+> ValuesController.cs
+
+```bash
+[Route("api/[controller]")]
+[ApiController]
+public class ValuesController : ControllerBase
+{
+    // GET api/values
+    [HttpGet]
+    [Authorize]
+    public IActionResult GetValues()
+    {
+        var values = new[] {"Arifur", "Rahman", "sazal" };
+
+        return Ok(values);
+    }
+
+    // GET api/values/1
+    [Authorize(Roles = "User")]
+    [HttpGet("{id}")]
+    public IActionResult GetValue(int id)
+    {
+        var values = new[] { "Arifur", "Rahman", "sazal" };
+
+        var value = values[id];
+
+        return Ok(value);
+    }
+
+    // GET api/values/admin
+    [Authorize(Roles = "Admin")]
+    [HttpGet("admin")]
+    public IActionResult AdminValue()
+    {
+
+        var value = "I am admin";
+
+        return Ok(value);
+    }
+}
+```
+
+#### Step-9
+
+Test using Postman client
+
+> Add an user:
+> ![](https://i.imgur.com/PdJhwrP.png)
+
+this user role will be admin because, registered successfully we add him as **admin**, using this code `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString());`
