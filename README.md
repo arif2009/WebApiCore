@@ -333,4 +333,14 @@ Test using Postman client
 > Add an user:
 > ![](https://i.imgur.com/PdJhwrP.png)
 
-this user role will be admin because, registered successfully we add him as **admin**, using this code `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString());`
+this user role will be admin because, after registered successfully we add him as **admin**, using this code `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString());`
+
+> Login to get authtoken
+> ![](https://i.imgur.com/bv62YNZ.png)
+
+Now try to access `api/values/admin` that only can access, who has admin role
+
+Yes :ok_hand: we successfully access admin method using token
+![](https://i.imgur.com/EYdTHQJ.png)
+
+No you can play with it. Remove line `await _userManager.AddToRoleAsync(user, Roles.Admin.ToString())` from `register` method and register another user, try to access `api/values/admin`. You can't access because you dont have admin role.
